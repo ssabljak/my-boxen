@@ -57,9 +57,11 @@ node default {
   include git
   include hub
   include nginx
-  include chrome
-  include virtualbox
-  include vagrant
+  include brewcask
+
+package { 'google-chrome': provider => 'brewcask' }
+package { 'virtualbox': provider => 'brewcask' }
+package { 'vagrant': provider => 'brewcask' }
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
