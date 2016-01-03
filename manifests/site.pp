@@ -58,6 +58,8 @@ node default {
   include hub
   include nginx
   include chrome
+  include virtualbox
+  include vagrant
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
