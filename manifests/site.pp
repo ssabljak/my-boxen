@@ -58,6 +58,7 @@ node default {
   include hub
   include nginx
   include brewcask
+  include transmission
 
 sudoers { 'installer':
   users    => $::boxen_user,
