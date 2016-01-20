@@ -67,4 +67,3 @@ github "xquartz",     "1.2.1"
 # github "sysctl",      "1.0.1"
 
 github "brewcask"
-github "transmission"

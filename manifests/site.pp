@@ -58,7 +58,6 @@ node default {
   include hub
   include nginx
   include brewcask
-  include transmission
 
 sudoers { 'installer':
   users    => $::boxen_user,
@@ -75,6 +74,7 @@ package { 'virtualbox':
      require  => [ Homebrew::Tap['caskroom/cask'], Sudoers['installer'] ],
 }
 package { 'vagrant': provider => 'brewcask' }
+package { 'transmission': provider => 'brewcask' }
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
