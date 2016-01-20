@@ -59,8 +59,20 @@ node default {
   include nginx
   include brewcask
 
+sudoers { 'installer':
+  users    => $::boxen_user,
+  hosts    => 'ALL',
+  commands => [
+    '(ALL) SETENV:NOPASSWD: /usr/sbin/installer',
+  ],
+  type     => 'user_spec',
+}
+
 package { 'google-chrome': provider => 'brewcask' }
-package { 'virtualbox': provider => 'brewcask' }
+package { 'virtualbox':
+     provider => 'brewcask',
+     require  => [ Homebrew::Tap['caskroom/cask'], Sudoers['installer'] ],
+}
 package { 'vagrant': provider => 'brewcask' }
 
   # fail if FDE is not enabled
