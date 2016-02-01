@@ -76,6 +76,7 @@ package { 'virtualbox':
 package { 'vagrant': provider => 'brewcask' }
 package { 'transmission': provider => 'brewcask' }
 package { 'android-studio': provider => 'brewcask' }
+package { 'vlc': provider => 'brewcask' }
 
   # fail if FDE is not enabled
   if $::root_encrypted == 'no' {
